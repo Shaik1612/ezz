@@ -1,46 +1,66 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Valentine Letter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Story Only For You ❤️</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- Envelope Screen -->
-    <div id="envelope-container">
-      <img src="envelope.png" alt="Envelope" id="envelope" />
-      <p>♡ Letter for You ♡</p>
-    </div>
+<link rel="stylesheet" href="style.css">
+</head>
 
-    <!-- Letter Screen -->
-    <div id="letter-container">
-      <div class="letter-window">
-        <h1 id="letter-title">Will you be my Valentine?</h1>
+<body>
 
-        <img src="cat_heart.gif" class="cat" id="letter-cat" />
+<div id="particles"></div>
 
-        <div class="buttons" id="letter-buttons">
-          <img src="yes.png" class="btn yes-btn" alt="Yes" />
+<audio id="music" loop>
+<source src="music.mp3">
+</audio>
 
-          <div class="no-wrapper">
-            <img src="no.png" class="btn no-btn" alt="No" />
-          </div>
-        </div>
+<!-- Hacker Intro -->
+<div class="scene active" id="hackScene">
+<h2>Decrypting Private Love Archive...</h2>
+<p id="hackText"></p>
+</div>
 
-        <p id="final-text" class="final-text" style="display: none">
-          <strong>Valentine Date:</strong> Meow Restaurant at 7pm. Dress fancy!
-        </p>
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+<!-- Password -->
+<div class="scene" id="passwordScene">
+<div class="card">
+<h2>Access Restricted 💌</h2>
+<input id="passwordInput" placeholder="Enter Special Date">
+<button id="unlockBtn">Unlock</button>
+<p id="error"></p>
+</div>
+</div>
+
+<!-- Memory Scene -->
+<div class="scene" id="memoryScene">
+<h2 id="memoryText"></h2>
+</div>
+
+<!-- Envelope -->
+<div class="scene" id="envelopeScene">
+<img src="envelope.png" id="envelope">
+<p>Tap to open my heart ❤️</p>
+</div>
+
+<!-- Letter -->
+<div class="scene" id="letterScene">
+<div class="letter">
+
+<h1 id="title"></h1>
+<img src="cat_heart.gif" id="cat">
+
+<div class="buttons">
+<img src="yes.png" id="yesBtn">
+<img src="no.png" id="noBtn">
+</div>
+
+<p id="finalText"></p>
+
+<div id="countdown"></div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>

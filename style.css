@@ -1,139 +1,137 @@
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("heart-bg.jpg");
-    font-family: "Pixelify Sans", sans-serif;
-}
-
-/* Envelope Screen */
-#envelope-container {
-    text-align: center;
-    cursor:pointer;
-}
-
-@keyframes pulse {
-    0% {
-        transform:scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-#envelope{
-    width: 200px;
-    animation: pulse 1.5s infinite;
-    cursor: pointer;
-}
-
-#letter-container{
-    display: none;
-    position:fixed;
-    inset: 0;
-    justify-content: center;
-    align-items: center;
-}
-
-.letter-window{
-    width: 90vw;
-    max-width: 800px;
-    aspect-ratio: 3/2;
-    padding: 20px 20px 0 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-image: url("window.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 12px;
-    gap: 1px;
-    padding-top: 180px;
-
-    transform: scale(1.2);
-    opacity: 0;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-
-.letter-window.open {
-    transform: scale(1);
-    opacity: 1;
-}
-
-h1 {
-    font-size: 30px;
+body{
     margin:0;
-}
+    font-family:sans-serif;
+    background:black;
+    color:white;
+    overflow:hidden;
+    }
+    
+    /* Scene System */
+    
+    .scene{
+    position:fixed;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transition:1s;
+    pointer-events:none;
+    text-align:center;
+    }
+    
+    .scene.active{
+    opacity:1;
+    pointer-events:auto;
+    }
+    
+    /* Hacker intro */
+    
+    #hackScene{
+    color:#00ff9c;
+    font-family:monospace;
+    }
+    
+    /* Card */
+    
+    .card{
+    background:white;
+    color:black;
+    padding:30px;
+    border-radius:15px;
+    }
+    
+    .card input{
+    padding:10px;
+    margin-top:10px;
+    }
+    
+    /* Envelope */
+    
+    #envelope{
+    width:220px;
+    cursor:pointer;
+    animation:pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse{
+    50%{transform:scale(1.1);}
+    }
+    
+    /* Letter */
+    
+    .letter{
+    width:90vw;
+    max-width:600px;
+    background:url("window.png") center/contain no-repeat;
+    padding:120px 40px 60px 40px;
 
-p {
-    font-size: 40px;
-}
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:15px;
+    }
+    
+    #cat{
+    width:200px;
+    margin:15px;
+    }
+    
+    .buttons img{
+    width:110px;
+    margin:10px;
+    cursor:pointer;
+    }
+    
+    /* Final */
+    
+    #finalText{
+    display:none;
+    max-width:420px;
+    font-size:20px;
+    line-height:1.5;
+    background:rgba(255,240,240,0.85);
+    padding:18px;
+    border-radius:14px;
+    text-align:center;
+    margin-top:15px;
+    box-shadow:0 0 20px rgba(255,150,180,0.4);
+    animation:fadeIn 0.8s ease;
+    }
+    
+    #countdown{
+    margin-top:20px;
+    font-size:20px;
+    color:pink;
+    }
+    
+    /* Particles */
+    
+    #particles div{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:pink;
+    border-radius:50%;
+    opacity:.7;
+    animation:float 6s infinite linear;
+    }
+    
+    @keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-100vh);}
+    }
 
-/* Cat */
-
-.cat {
-    width: 250px;
-    margin: 10px 0;
-    transition: width 0.4s ease;
-}
-
-.letter-window.final .cat {
-    width: 180px;
-}
-
-/* buttons */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    position: relative;
-}
-
-.no-wrapper{
-    position:relative;
-}
-
-.btn {
-    width: 120px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.yes-btn,
-.no-btn {
-width: 120px;
-height: auto;
-display: inline-block;
-}
-
-.yes-btn {
-    position: relative;
-    z-index: 2;
-    transform-origin: center center;
-    transition: transform 0.3s ease;
-}
-
-.no-btn {
-    z-index: 1;
-    position: relative;
-    transition: transform 0.15s ease;
-    cursor: default;
-}
-
-.final-text{
-    font-size: 22px;
-    line-height: 1.4;
-    text-align: center;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(255,240,240,0.5);
-    border-radius: 12px;
+@keyframes fadeIn {
+    from {
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
 }
